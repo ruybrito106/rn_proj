@@ -1,0 +1,8 @@
+*.pyc
+data/
+out/
+
+*.pyc
+*.zip
+
+.DS_Store
