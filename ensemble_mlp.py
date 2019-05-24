@@ -63,15 +63,15 @@ def init_model_fn_3():
 
 # MLP 1
 mlp_1 = KerasClassifier(build_fn=init_model_fn_1, epochs=100000, verbose=1)
-mlp_1.fit(train_X, train_y, callbacks=[EarlyStopping(patience=3)], validation_data=(valid_X, valid_y))
+mlp_1.fit(train_X, train_y, callbacks=[EarlyStopping(patience=0.1)], validation_data=(valid_X, valid_y))
 
 #MLP 2
 mlp_2 = KerasClassifier(build_fn=init_model_fn_2, epochs=100000, verbose=1)
-mlp_2.fit(train_X, train_y, callbacks=[EarlyStopping(patience=3)], validation_data=(valid_X, valid_y))
+mlp_2.fit(train_X, train_y, callbacks=[EarlyStopping(patience=0.1)], validation_data=(valid_X, valid_y))
 
 #MLP 3
 mlp_3 = KerasClassifier(build_fn=init_model_fn_3, epochs=100000, verbose=1)
-mlp_3.fit(train_X, train_y, callbacks=[EarlyStopping(patience=3)], validation_data=(valid_X, valid_y))
+mlp_3.fit(train_X, train_y, callbacks=[EarlyStopping(patience=0.1)], validation_data=(valid_X, valid_y))
 
 # ENSEMBLE
 ensemble_mlp = EnsembleVoteClassifier(clfs=[mlp_1, mlp_2, mlp_3], weights=[1,1,1], voting='soft')
